@@ -102,10 +102,18 @@ public final class CommentsInfoItemsCollector
         }
 
         try {
-            resultItem.setDonation(extractor.getDonation());
+            resultItem.setChannelOwner(extractor.isChannelOwner());
         } catch (final Exception e) {
             addError(e);
         }
+
+
+        try {
+            resultItem.setCreatorReply(extractor.hasCreatorReply());
+        } catch (final Exception e) {
+            addError(e);
+        }
+
 
         return resultItem;
     }

@@ -7,7 +7,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.schabi.newpipe.extractor.ServiceList.YouTube;
 import static org.schabi.newpipe.extractor.services.youtube.YoutubeParsingHelper.DISABLE_PRETTY_PRINT_PARAMETER;
 import static org.schabi.newpipe.extractor.services.youtube.YoutubeParsingHelper.YOUTUBEI_V1_URL;
-import static org.schabi.newpipe.extractor.services.youtube.YoutubeParsingHelper.getKey;
 import static org.schabi.newpipe.extractor.services.youtube.YoutubeParsingHelper.prepareDesktopJsonBuilder;
 
 import com.grack.nanojson.JsonWriter;
@@ -22,7 +21,6 @@ import org.schabi.newpipe.extractor.NewPipe;
 import org.schabi.newpipe.extractor.Page;
 import org.schabi.newpipe.extractor.exceptions.ExtractionException;
 import org.schabi.newpipe.extractor.exceptions.ParsingException;
-import org.schabi.newpipe.extractor.playlist.PlaylistExtractor;
 import org.schabi.newpipe.extractor.playlist.PlaylistInfo;
 import org.schabi.newpipe.extractor.services.youtube.extractors.YoutubeMixPlaylistExtractor;
 import org.schabi.newpipe.extractor.stream.StreamInfoItem;
@@ -92,7 +90,7 @@ public class YoutubeMixPlaylistExtractorTest {
                     .getBytes(StandardCharsets.UTF_8);
 
             final InfoItemsPage<StreamInfoItem> streams = extractor.getPage(new Page(
-                    YOUTUBEI_V1_URL + "next?key=" + getKey() + DISABLE_PRETTY_PRINT_PARAMETER,
+                    YOUTUBEI_V1_URL + "next?" + DISABLE_PRETTY_PRINT_PARAMETER,
                     null, null, dummyCookie, body));
             assertFalse(streams.getItems().isEmpty());
             assertTrue(streams.hasNextPage());
@@ -181,7 +179,7 @@ public class YoutubeMixPlaylistExtractorTest {
                     .getBytes(StandardCharsets.UTF_8);
 
             final InfoItemsPage<StreamInfoItem> streams = extractor.getPage(new Page(
-                    YOUTUBEI_V1_URL + "next?key=" + getKey() + DISABLE_PRETTY_PRINT_PARAMETER,
+                    YOUTUBEI_V1_URL + "next?" + DISABLE_PRETTY_PRINT_PARAMETER,
                     null, null, dummyCookie, body));
             assertFalse(streams.getItems().isEmpty());
             assertTrue(streams.hasNextPage());
@@ -269,7 +267,7 @@ public class YoutubeMixPlaylistExtractorTest {
                     .getBytes(StandardCharsets.UTF_8);
 
             final InfoItemsPage<StreamInfoItem> streams = extractor.getPage(new Page(
-                    YOUTUBEI_V1_URL + "next?key=" + getKey() + DISABLE_PRETTY_PRINT_PARAMETER,
+                    YOUTUBEI_V1_URL + "next?" + DISABLE_PRETTY_PRINT_PARAMETER,
                     null, null, dummyCookie, body));
             assertFalse(streams.getItems().isEmpty());
             assertTrue(streams.hasNextPage());
@@ -387,7 +385,7 @@ public class YoutubeMixPlaylistExtractorTest {
                     .getBytes(StandardCharsets.UTF_8);
 
             final InfoItemsPage<StreamInfoItem> streams = extractor.getPage(new Page(
-                    YOUTUBEI_V1_URL + "next?key=" + getKey() + DISABLE_PRETTY_PRINT_PARAMETER,
+                    YOUTUBEI_V1_URL + "next?" + DISABLE_PRETTY_PRINT_PARAMETER,
                     null, null, dummyCookie, body));
             assertFalse(streams.getItems().isEmpty());
             assertTrue(streams.hasNextPage());
@@ -454,7 +452,8 @@ public class YoutubeMixPlaylistExtractorTest {
                     .getBytes(StandardCharsets.UTF_8);
 
             final InfoItemsPage<StreamInfoItem> streams = extractor.getPage(new Page(
-                    YOUTUBEI_V1_URL + "next?key=" + getKey(), null, null, dummyCookie, body));
+                    YOUTUBEI_V1_URL + "next?" + DISABLE_PRETTY_PRINT_PARAMETER,
+                    null, null, dummyCookie, body));
             assertFalse(streams.getItems().isEmpty());
             assertTrue(streams.hasNextPage());
         }
@@ -542,7 +541,8 @@ public class YoutubeMixPlaylistExtractorTest {
                     .getBytes(StandardCharsets.UTF_8);
 
             final InfoItemsPage<StreamInfoItem> streams = extractor.getPage(new Page(
-                    YOUTUBEI_V1_URL + "next?key=" + getKey(), null, null, dummyCookie, body));
+                    YOUTUBEI_V1_URL + "next?" + DISABLE_PRETTY_PRINT_PARAMETER,
+                    null, null, dummyCookie, body));
             assertFalse(streams.getItems().isEmpty());
             assertTrue(streams.hasNextPage());
         }
@@ -570,7 +570,7 @@ public class YoutubeMixPlaylistExtractorTest {
         }
 
         @Test
-        void getStreamCount() throws ParsingException {
+        void getStreamCount() {
             assertEquals(ListExtractor.ITEM_COUNT_INFINITE, extractor.getStreamCount());
         }
 

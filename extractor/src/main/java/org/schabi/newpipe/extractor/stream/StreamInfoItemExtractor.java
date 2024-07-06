@@ -1,7 +1,7 @@
 /*
  * Created by Christian Schabesberger on 28.02.16.
  *
- * Copyright (C) Christian Schabesberger 2016 <chris.schabesberger@mailbox.org>
+ * Copyright (C) 2016 Christian Schabesberger <chris.schabesberger@mailbox.org>
  * StreamInfoItemExtractor.java is part of NewPipe Extractor.
  *
  * NewPipe Extractor is free software: you can redistribute it and/or modify
@@ -50,7 +50,7 @@ public interface StreamInfoItemExtractor extends InfoItemExtractor {
     /**
      * Get the stream duration in seconds
      *
-     * @return the stream duration in seconds
+     * @return the stream duration in seconds or -1 if no duration is available
      * @throws ParsingException if there is an error in the extraction
      */
     long getDuration() throws ParsingException;

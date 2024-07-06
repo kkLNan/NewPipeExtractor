@@ -1,7 +1,7 @@
 /*
  * Created by Christian Schabesberger on 25.07.16.
  *
- * Copyright (C) Christian Schabesberger 2018 <chris.schabesberger@mailbox.org>
+ * Copyright (C) 2018 Christian Schabesberger <chris.schabesberger@mailbox.org>
  * YoutubeChannelExtractor.java is part of NewPipe Extractor.
  *
  * NewPipe Extractor is free software: you can redistribute it and/or modify
@@ -445,11 +445,11 @@ public class YoutubeChannelExtractor extends ChannelExtractor {
                             case "streams":
                                 addNonVideosTab.accept(ChannelTabs.LIVESTREAMS);
                                 break;
+                            case "releases":
+                                addNonVideosTab.accept(ChannelTabs.ALBUMS);
+                                break;
                             case "playlists":
                                 addNonVideosTab.accept(ChannelTabs.PLAYLISTS);
-                                break;
-                            case "channels":
-                                addNonVideosTab.accept(ChannelTabs.CHANNELS);
                                 break;
                         }
                     }
